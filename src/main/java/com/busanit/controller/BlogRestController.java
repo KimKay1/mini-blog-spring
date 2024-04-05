@@ -19,6 +19,11 @@ public class BlogRestController {
         return blogService.getBlogList();
     }
 
+    @GetMapping("/get/{idx}")
+    public BlogDTO getBlog(@PathVariable("idx") Long idx) {
+        return blogService.getBlog(idx);
+    }
+
     @PostMapping("/write")
     public void writeBlog(@RequestBody BlogDTO blogDTO) {
         blogService.writeBlog(blogDTO);

@@ -20,6 +20,10 @@ public class BlogService {
         return blogList.stream().map(blog -> BlogDTO.toDTO(blog)).collect(Collectors.toList());
     }
 
+    public BlogDTO getBlog(Long idx) {
+        return BlogDTO.toDTO(blogRepository.findById(idx).orElseThrow(() -> new NullPointerException("blog null")));
+    }
+
     public void writeBlog(BlogDTO dto) {
         Blog blog = Blog.toEntity(dto);
 
