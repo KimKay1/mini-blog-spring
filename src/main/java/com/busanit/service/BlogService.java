@@ -30,7 +30,7 @@ public class BlogService {
         blogRepository.save(blog);
     }
 
-    public void delete(Long idx) {
+    public void deleteBlog(Long idx) {
         blogRepository.deleteById(idx);
     }
 }

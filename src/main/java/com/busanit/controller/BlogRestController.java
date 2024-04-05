@@ -30,7 +30,7 @@ public class BlogRestController {
     }
 
     @PostMapping("/delete/{idx}")
-    public void delete(@PathVariable("idx") Long idx) {
-        blogService.delete(idx);
+    public void deleteBlog(@PathVariable("idx") Long idx) {
+        blogService.deleteBlog(idx);
     }
 }
