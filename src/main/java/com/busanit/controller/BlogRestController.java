@@ -1,13 +1,26 @@
 package com.busanit.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.busanit.domain.BlogDTO;
+import com.busanit.service.BlogService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/blog")
+@RequiredArgsConstructor
 public class BlogRestController {
 
-    @RequestMapping("/test")
-    public String test() {
-        return "리액트 연동 테스트";
+    private final BlogService blogService;
+
+    @GetMapping("/list")
+    public List<BlogDTO> getBlogList() {
+        return blogService.getBlogList();
+    }
+
+    @PostMapping("/write")
+    public void writeBlog(@RequestBody BlogDTO blogDTO) {
+        blogService.writeBlog(blogDTO);
     }
 }
