@@ -28,4 +28,9 @@ public class BlogRestController {
     public void writeBlog(@RequestBody BlogDTO blogDTO) {
         blogService.writeBlog(blogDTO);
     }
+
+    @PostMapping("/delete/{idx}")
+    public void delete(@PathVariable("idx") Long idx) {
+        blogService.delete(idx);
+    }
 }
