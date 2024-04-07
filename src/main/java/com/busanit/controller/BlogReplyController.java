@@ -3,10 +3,7 @@ package com.busanit.controller;
 import com.busanit.domain.BlogReplyDTO;
 import com.busanit.service.BlogReplyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reply")
@@ -17,7 +14,21 @@ public class BlogReplyController {
 
     @PostMapping("/write")
     public void writeReply(@RequestBody BlogReplyDTO replyDTO) {
-        blogReplyService.writeReply(replyDTO);
+
+        if(replyDTO.getIdx() != null) { // reply 작성시
+            blogReplyService.writeReply(replyDTO);
+        }else { // reply 수정 시
+            // rIdx로 해당 댓글의 부모 게시물 식별해 idx 가져옴
+            Long parentPostIdx = blogReplyService.getParentPostIdx(replyDTO.getRIdx());
+            replyDTO.setIdx(parentPostIdx);
+            blogReplyService.writeReply(replyDTO);
+        }
+
     }
+
+//    @PostMapping("/edit")
+//    public void editReply(@RequestBody BlogReplyDTO replyDTO) {
+//        blogReplyService.editReply(replyDTO);
+//    }
 
 }
