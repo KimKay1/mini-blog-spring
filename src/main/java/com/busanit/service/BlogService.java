@@ -20,6 +20,12 @@ public class BlogService {
         return blogList.stream().map(blog -> BlogDTO.toDTO(blog)).collect(Collectors.toList());
     }
 
+    public List<BlogDTO> getBlogSearchList(String searchTerm) {
+        List<Blog> blogList = blogRepository.findByTitleContaining(searchTerm);
+
+        return blogList.stream().map(blog -> BlogDTO.toDTO(blog)).collect(Collectors.toList());
+    }
+
     public BlogDTO getBlog(Long idx) {
         return BlogDTO.toDTO(blogRepository.findById(idx).orElseThrow(() -> new NullPointerException("blog null")));
     }

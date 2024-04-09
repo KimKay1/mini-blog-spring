@@ -15,8 +15,13 @@ public class BlogRestController {
     private final BlogService blogService;
 
     @GetMapping("/list")
-    public List<BlogDTO> getBlogList() {
-        return blogService.getBlogList();
+    public List<BlogDTO> getBlogList(@RequestParam(defaultValue = "") String searchTerm) {
+
+        if(searchTerm.isEmpty()) {
+            return blogService.getBlogList();
+        } else {
+            return blogService.getBlogSearchList(searchTerm);
+        }
     }
 
     @GetMapping("/get/{idx}")

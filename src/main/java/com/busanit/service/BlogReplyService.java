@@ -25,4 +25,8 @@ public class BlogReplyService {
         Optional<BlogReply> replyOptional = blogReplyRepository.findById(rIdx);
         return replyOptional.map(reply -> reply.getBlog().getIdx()).orElse(null);
     }
+
+    public void deleteReply(Long rIdx) {
+        blogReplyRepository.deleteById(rIdx);
+    }
 }

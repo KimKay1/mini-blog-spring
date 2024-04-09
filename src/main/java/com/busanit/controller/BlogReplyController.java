@@ -26,9 +26,9 @@ public class BlogReplyController {
 
     }
 
-//    @PostMapping("/edit")
-//    public void editReply(@RequestBody BlogReplyDTO replyDTO) {
-//        blogReplyService.editReply(replyDTO);
-//    }
+    @PostMapping("/delete/{rIdx}")
+    public void deleteReply(@PathVariable("rIdx") Long rIdx) {
+        blogReplyService.deleteReply(rIdx);
+    }
 
 }
