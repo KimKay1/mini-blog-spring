@@ -34,7 +34,7 @@ public class BlogService {
     }
 
     public List<BlogDTO> getBlogSearchList(String searchTerm) {
-        List<Blog> blogList = blogRepository.findByTitleContaining(searchTerm);
+        List<Blog> blogList = blogRepository.findByTitleContainingOrderByIdxDesc(searchTerm);
 
         return blogList.stream().map(blog -> toDTO(blog)).collect(Collectors.toList());
     }
