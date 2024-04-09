@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 // 부모 클래스를 상속 받는 자식 클래스에 매핑 정보만 제공
 @Getter
 public class BaseEntity extends BaseTimeEntity {
-    
+
     @CreatedBy
     @Column(updatable = false)
     private String createBy;

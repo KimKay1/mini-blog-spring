@@ -1,6 +1,5 @@
 package com.busanit.entity;
 
-import com.busanit.domain.BlogDTO;
 import com.busanit.domain.BlogReplyDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -14,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BlogReply extends BaseEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rIdx;
@@ -45,18 +44,4 @@ public class BlogReply extends BaseEntity {
 
         return builder.build();
     }
-
-//    public static BlogReply toEditEntity(BlogReplyDTO dto) {
-//
-//        BlogReplyBuilder builder = BlogReply.builder()
-//                .content(dto.getContent());
-//
-//        // rIdx값이 없을 경우 insert
-//        // rIdx값이 있을 경우 update
-////        if(dto.getRIdx() != null) {
-//            builder.rIdx(dto.getRIdx());
-////        }
-//
-//        return builder.build();
-//    }
 }

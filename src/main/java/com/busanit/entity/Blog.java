@@ -41,5 +41,4 @@ public class Blog extends BaseEntity {
 
         return builder.build();
     }
-
 }

@@ -18,7 +18,6 @@ public class BlogReplyDTO {
     public static BlogReplyDTO toDTO(BlogReply blogReply) {
         return BlogReplyDTO.builder()
                 .rIdx(blogReply.getRIdx())
-//                .idx(blogReply.getIdx())
                 .content(blogReply.getContent())
                 .build();
     }

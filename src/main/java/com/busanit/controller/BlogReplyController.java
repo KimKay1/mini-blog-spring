@@ -17,7 +17,7 @@ public class BlogReplyController {
 
         if(replyDTO.getIdx() != null) { // reply 작성시
             blogReplyService.writeReply(replyDTO);
-        }else { // reply 수정 시
+        } else { // reply 수정 시
             // rIdx로 해당 댓글의 부모 게시물 식별해 idx 가져옴
             Long parentPostIdx = blogReplyService.getParentPostIdx(replyDTO.getRIdx());
             replyDTO.setIdx(parentPostIdx);
@@ -30,5 +30,4 @@ public class BlogReplyController {
     public void deleteReply(@PathVariable("rIdx") Long rIdx) {
         blogReplyService.deleteReply(rIdx);
     }
-
 }

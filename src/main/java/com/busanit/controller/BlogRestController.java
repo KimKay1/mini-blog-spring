@@ -26,6 +26,7 @@ public class BlogRestController {
 
     @GetMapping("/get/{idx}")
     public BlogDTO getBlog(@PathVariable("idx") Long idx) {
+
         return blogService.getBlog(idx);
     }
 

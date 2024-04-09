@@ -21,13 +21,13 @@ public class BlogDTO {
     //댓글 갯수
     private long replyCnt;
 
-    // Entity -> DTO 변환
-    public static BlogDTO toDTO(Blog blog) {
-        return BlogDTO.builder()
-                .idx(blog.getIdx())
-                .title(blog.getTitle())
-                .content(blog.getContent())
-                .blogReplyList(blog.getBlogReplyList())
-                .build();
-    }
+//    // Entity -> DTO 변환
+//    public static BlogDTO toDTO(Blog blog) {
+//        return BlogDTO.builder()
+//                .idx(blog.getIdx())
+//                .title(blog.getTitle())
+//                .content(blog.getContent())
+//                .blogReplyList(blog.getBlogReplyList())
+//                .build();
+//    }
 }
