@@ -18,6 +18,9 @@ public class BlogDTO {
     private String content;
     private List<BlogReply> blogReplyList;
 
+    //댓글 갯수
+    private long replyCnt;
+
     // Entity -> DTO 변환
     public static BlogDTO toDTO(Blog blog) {
         return BlogDTO.builder()

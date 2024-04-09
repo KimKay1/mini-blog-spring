@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BlogReplyRepository extends JpaRepository<BlogReply, Long> {
 
+    long countByBlog_Idx(Long idx);
 }
